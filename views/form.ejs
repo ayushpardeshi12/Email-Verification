@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Validator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 50px;
+      }
+      .result {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Email Validator</h1>
+    <form action="/validate-email" method="post">
+      <label for="email">Enter email:</label>
+      <input type="text" id="email" name="email" />
+      <button type="submit">Validate</button>
+    </form>
+
+    <% if (result) { %>
+    <div class="result">
+      <p><strong>Result:</strong> <%= result %></p>
+      <ul>
+        <li>
+          <strong>Syntax:</strong> <%= details.syntax ? "Valid" : "Invalid" %>
+        </li>
+        <li>
+          <strong>Mail Server:</strong> <%= details.mailServer ? "Valid" :
+          "Invalid" %>
+        </li>
+        <li>
+          <strong>Mailbox:</strong> <%= details.mailbox ? "Valid" : "Invalid" %>
+        </li>
+        <li>
+          <strong>No Catch-All:</strong> <%= details.catchAll ? "Valid" :
+          "Invalid" %>
+        </li>
+      </ul>
+    </div>
+    <% } %>
+  </body>
+</html>
